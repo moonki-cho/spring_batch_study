@@ -1,4 +1,4 @@
-package org.study.spring_batch_study.chater4.config;
+package org.study.spring_batch_study.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.batch.core.JobParameters;

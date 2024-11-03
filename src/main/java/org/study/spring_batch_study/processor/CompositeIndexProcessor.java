@@ -1,8 +1,8 @@
-package org.study.spring_batch_study.chater4.processor;
+package org.study.spring_batch_study.processor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemProcessor;
-import org.study.spring_batch_study.chater4.model.CompositeIndex;
+import org.study.spring_batch_study.model.CompositeIndex;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package org.study.spring_batch_study.chater4.config;
+package org.study.spring_batch_study.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -21,10 +21,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.study.spring_batch_study.chater4.model.CompositeIndex;
-import org.study.spring_batch_study.chater4.model.CompositeIndexHeader;
-import org.study.spring_batch_study.chater4.model.CompositeIndexLineAggregator;
-import org.study.spring_batch_study.chater4.processor.CompositeIndexProcessor;
+import org.study.spring_batch_study.model.CompositeIndex;
+import org.study.spring_batch_study.model.CompositeIndexHeader;
+import org.study.spring_batch_study.model.CompositeIndexLineAggregator;
+import org.study.spring_batch_study.processor.CompositeIndexProcessor;
 
 import java.util.ArrayList;
 import java.util.List;

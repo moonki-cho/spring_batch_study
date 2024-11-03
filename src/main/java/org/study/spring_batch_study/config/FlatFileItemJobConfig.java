@@ -1,4 +1,4 @@
-package org.study.spring_batch_study.chater4.config;
+package org.study.spring_batch_study.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -17,11 +17,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.study.spring_batch_study.chater4.model.Customer;
-import org.study.spring_batch_study.chater4.model.CustomerFooter;
-import org.study.spring_batch_study.chater4.model.CustomerHeader;
-import org.study.spring_batch_study.chater4.model.CustomerLineAggregator;
-import org.study.spring_batch_study.chater4.processor.AggregateCustomerProcessor;
+import org.study.spring_batch_study.model.Customer;
+import org.study.spring_batch_study.model.CustomerFooter;
+import org.study.spring_batch_study.model.CustomerHeader;
+import org.study.spring_batch_study.model.CustomerLineAggregator;
+import org.study.spring_batch_study.processor.AggregateCustomerProcessor;
 
 import java.util.concurrent.ConcurrentHashMap;
 

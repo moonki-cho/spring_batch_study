@@ -1,4 +1,4 @@
-package org.study.spring_batch_study.chater4.model;
+package org.study.spring_batch_study.model;
 
 import lombok.Builder;
 import lombok.Getter;
