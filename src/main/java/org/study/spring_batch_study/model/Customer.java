@@ -1,11 +1,17 @@
 package org.study.spring_batch_study.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Getter
-@Setter
+@Entity
+@Table(name = "customer")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private int age;
     private String gender;
