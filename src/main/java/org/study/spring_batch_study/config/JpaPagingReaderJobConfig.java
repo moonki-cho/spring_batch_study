@@ -51,18 +51,17 @@ public class JpaPagingReaderJobConfig {
 				.build();
 	}
 
-
-//    @Bean
-//    public JpaPagingItemReader<Customer> customerJpaPagingItemReader() throws Exception {
-//        JpaPagingItemReader<Customer> jpaPagingItemReader = new JpaPagingItemReader<>();
-//        jpaPagingItemReader.setQueryString(
-//                "SELECT c FROM Customer c WHERE c.age > :age order by id desc"
-//        );
-//        jpaPagingItemReader.setEntityManagerFactory(entityManagerFactory);
-//        jpaPagingItemReader.setPageSize(CHUNK_SIZE);
-//        jpaPagingItemReader.setParameterValues(Collections.singletonMap("age", 20));
-//        return jpaPagingItemReader;
-//    }
+    /*@Bean
+    public JpaPagingItemReader<Customer> customerJpaPagingItemReader() throws Exception {
+        JpaPagingItemReader<Customer> jpaPagingItemReader = new JpaPagingItemReader<>();
+        jpaPagingItemReader.setQueryString(
+                "SELECT c FROM Customer c WHERE c.age > :age order by id desc"
+        );
+        jpaPagingItemReader.setEntityManagerFactory(entityManagerFactory);
+        jpaPagingItemReader.setPageSize(CHUNK_SIZE);
+        jpaPagingItemReader.setParameterValues(Collections.singletonMap("age", 20));
+        return jpaPagingItemReader;
+    }*/
 
 	@Bean
 	public FlatFileItemWriter<Customer> customerJpaFlatFileItemWriter() {
