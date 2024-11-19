@@ -18,8 +18,10 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA 실습을 위해 추가
     implementation 'org.springframework.boot:spring-boot-starter-batch' // spring batch 관련 의존성
     implementation 'com.h2database:h2:2.2.224' // H2 database 의존성 추가
+    //implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'org.projectlombok:lombok:1.18.34' // log 출력을 위해 lombok 추가
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
