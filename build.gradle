@@ -15,18 +15,20 @@ java {  // 빌드와 관련된 java 설정 정의
 
 repositories {
     mavenCentral()
+    maven { url "https://repo.mybatis.org/maven2/" }
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA 실습을 위해 추가
     implementation 'org.springframework.boot:spring-boot-starter-batch' // spring batch 관련 의존성
     implementation 'com.h2database:h2:2.2.224' // H2 database 의존성 추가
-    //implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'org.projectlombok:lombok:1.18.34' // log 출력을 위해 lombok 추가
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.batch:spring-batch-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+    implementation 'org.mybatis:mybatis-spring:3.0.0'
 }
 
 tasks.named('test') {
