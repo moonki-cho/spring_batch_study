@@ -1,5 +1,6 @@
 package org.study.spring_batch_study.config;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.batch.MyBatisPagingItemReader;
@@ -12,14 +13,19 @@ import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.batch.item.file.builder.FlatFileItemWriterBuilder;
+import org.springframework.batch.item.support.CompositeItemProcessor;
+import org.springframework.batch.item.support.builder.CompositeItemProcessorBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.study.spring_batch_study.model.CustomerForMybatis;
+import org.study.spring_batch_study.processor.After20YearsItemProcessor;
+import org.study.spring_batch_study.processor.LowCaseItemProcessor;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 @Slf4j
 @Configuration
@@ -30,7 +36,6 @@ public class MyBatisReaderJobConfig {
 
 	@Autowired
 	private DataSource dataSource;
-
 	@Autowired
 	private SqlSessionFactory sqlSessionFactory;
 
@@ -55,6 +60,17 @@ public class MyBatisReaderJobConfig {
 				.build();
 	}
 
+	@Bean
+	public CompositeItemProcessor<CustomerForMybatis, CustomerForMybatis> compositeItemProcessor() {
+		return new CompositeItemProcessorBuilder<CustomerForMybatis, CustomerForMybatis>()
+				.delegates(
+						List.of(
+								new LowCaseItemProcessor(),
+								new After20YearsItemProcessor()
+						)
+				).build();
+	}
+
 
 	@Bean
 	public Step customerJdbcCursorStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) throws Exception {
@@ -63,6 +79,7 @@ public class MyBatisReaderJobConfig {
 		return new StepBuilder("customerJdbcCursorStep", jobRepository)
 				.<CustomerForMybatis, CustomerForMybatis>chunk(CHUNK_SIZE, transactionManager)
 				.reader(myBatisItemReader())
+				.processor(compositeItemProcessor())
 				.writer(customerCursorFlatFileItemWriter())
 				.build();
 	}
